@@ -56,6 +56,41 @@ export default function App() {
     targetLangRef.current = e.target.value;
   };
 
+  // ── blobToBase64 — must be first, sendToAPI uses it ───────────────────
+  const blobToBase64 = (blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result.split(',')[1]);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+
+  // ── sendToAPI — must be second, startRecording uses it ────────────────
+  const sendToAPI = useCallback(async (audioBlob, lang) => {
+    try {
+      const base64Audio = await blobToBase64(audioBlob);
+      console.log(`Sending ${audioBlob.size} bytes, lang: ${lang}`);
+
+      const response = await fetch(config.API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ audio: base64Audio, targetLang: lang }),
+      });
+
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.error || 'Translation failed');
+
+      console.log('Audio data length:', data.audio?.length);
+      setResult(data);
+      setStatus(STATUS.DONE);
+      setAudioData(data.audio);
+    } catch (err) {
+      console.error('API error:', err);
+      setErrorMsg(err.message || 'Something went wrong. Check the console.');
+      setStatus(STATUS.ERROR);
+    }
+  }, []);
+
+  // ── startRecording — must be third, after sendToAPI ───────────────────
   const startRecording = useCallback(async () => {
     if (!targetLangRef.current) {
       setErrorMsg('Please select a language before recording');
@@ -94,44 +129,13 @@ export default function App() {
     }
   }, [sendToAPI]);
 
+  // ── stopRecording ─────────────────────────────────────────────────────
   const stopRecording = useCallback(() => {
     if (mediaRecorderRef.current && status === STATUS.RECORDING) {
       mediaRecorderRef.current.stop();
       setStatus(STATUS.PROCESSING);
     }
   }, [status]);
-
-  const sendToAPI = useCallback(async (audioBlob, lang) => {
-    try {
-      const base64Audio = await blobToBase64(audioBlob);
-      console.log(`Sending ${audioBlob.size} bytes, lang: ${lang}`);
-
-      const response = await fetch(config.API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ audio: base64Audio, targetLang: lang }),
-      });
-
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || 'Translation failed');
-
-      console.log('Audio data length:', data.audio?.length);
-      setResult(data);
-      setStatus(STATUS.DONE);
-      setAudioData(data.audio);  // ← this triggers the useEffect to play
-    } catch (err) {
-      console.error('API error:', err);
-      setErrorMsg(err.message || 'Something went wrong. Check the console.');
-      setStatus(STATUS.ERROR);
-    }
-  }, []);
-
-  const blobToBase64 = (blob) => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onload = () => resolve(reader.result.split(',')[1]);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
 
   return (
     <div className="app">
