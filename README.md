@@ -145,9 +145,9 @@ cd voice-translator
 
 **2. Set up environment variables**
 ```bash
-cp .env.example .env
-# Open .env and fill in your API Gateway URL
-```
+cp frontend/.env.example frontend/.env
+# Open .env and fill in your API Gateway URL. .env file is not committed to your github repo because it is ignored by .gitignore. Github deployment will pick up API URL throgh Github Secrets. .env is refered on only on your local. 
+```s
 
 **3. Deploy the backend**
 ```bash
