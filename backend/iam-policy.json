@@ -9,7 +9,7 @@
         "s3:GetObject",
         "s3:DeleteObject"
       ],
-      "Resource": "arn:aws:s3:::voice-translator-YOUR-NAME-2024/*"
+      "Resource": "arn:aws:s3:::voice-translator-YOUR-NAME-2026/*"
     },
     {
       "Sid": "TranscribeAccess",

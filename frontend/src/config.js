@@ -30,3 +30,4 @@ const config = {
   AUDIO_CHUNK_INTERVAL_MS: 100,
 };
 
+export default config;  
