@@ -92,7 +92,7 @@ export default function App() {
       setErrorMsg('Microphone access denied. Please allow microphone access in your browser.');
       setStatus(STATUS.ERROR);
     }
-  }, []);
+  }, [sendToAPI]);
 
   const stopRecording = useCallback(() => {
     if (mediaRecorderRef.current && status === STATUS.RECORDING) {
