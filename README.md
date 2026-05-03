@@ -91,6 +91,13 @@ Before you start, make sure you have:
 > walk through account setup from scratch.
 
 ---
+## 🌿 Branches
+
+| Branch | Description |
+|--------|-------------|
+| `main` | Finished, working app — clone this to see the final result |
+| `starter-code` | Start here if following the tutorial — has TODO comments |
+
 
 ## 🚀 Setup
 
