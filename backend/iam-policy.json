@@ -1,0 +1,50 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "S3AudioBucketAccess",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject",
+        "s3:DeleteObject"
+      ],
+      "Resource": "arn:aws:s3:::voice-translator-YOUR-NAME-2024/*"
+    },
+    {
+      "Sid": "TranscribeAccess",
+      "Effect": "Allow",
+      "Action": [
+        "transcribe:StartTranscriptionJob",
+        "transcribe:GetTranscriptionJob"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "TranslateAccess",
+      "Effect": "Allow",
+      "Action": [
+        "translate:TranslateText"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "PollyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "polly:SynthesizeSpeech"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "CloudWatchLogs",
+      "Effect": "Allow",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": "arn:aws:logs:*:*:*"
+    }
+  ]
+}

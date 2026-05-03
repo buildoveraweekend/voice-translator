@@ -1,0 +1,7 @@
+# backend/requirements.txt
+# ─────────────────────────────────────────────────────────
+# boto3 is pre-installed in the AWS Lambda Python environment
+# and does NOT need to be included in your deployment package.
+# It is listed here for documentation and local development.
+# ─────────────────────────────────────────────────────────
+boto3>=1.34.0
