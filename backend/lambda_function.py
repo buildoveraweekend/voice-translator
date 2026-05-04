@@ -69,8 +69,14 @@ def lambda_handler(event, context):
 
 
 def cors_response(status_code, body):
-    """Always include CORS headers so the browser doesn't block us."""
-    # TODO: Return a dict with statusCode, headers (including CORS), and body
-    # Hint: Access-Control-Allow-Origin should be '*'
+    """
+    Always include CORS headers — even on error responses.
+    Without CORS headers on errors, the browser shows 'Failed to fetch'
+    and hides the real error message. This is one of the most
+    confusing bugs in web development.
+    """
+    # TODO: Return dict with statusCode, headers (CORS), and body
+    # Hint: Access-Control-Allow-Origin must be '*'
+    # Hint: Include Content-Type, Allow-Headers, Allow-Methods
+    # CRITICAL: This must be called for EVERY response including errors
     pass
-
