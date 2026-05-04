@@ -91,6 +91,36 @@ Before you start, make sure you have:
 > walk through account setup from scratch.
 
 ---
+## 🌿 Branches
+
+| Branch | Description |
+|--------|-------------|
+| `main` | Finished, working app — clone this to see the final result |
+| `starter-code` | Start here if following the tutorial — has TODO comments |
+
+## ⚠️ Before You Start — Personalise These Values
+
+S3 bucket names must be **globally unique** across all AWS accounts 
+worldwide. You must choose your own unique name before deploying.
+
+Find and replace `voice-translator-YOUR-NAME-2026` with your own 
+bucket name in these files:
+
+| File | What to change |
+|------|---------------|
+| `backend/iam-policy.json` | The S3 Resource ARN |
+| `.env` | The BUCKET_NAME value |
+| `backend/lambda_function.py` | The BUCKET_NAME value |
+
+**Good bucket name examples:**
+- `voice-translator-boaw-2026`
+- `voice-translator-john-smith-2026`
+
+**Rules for bucket names:**
+- Lowercase letters, numbers, and hyphens only
+- No spaces, no uppercase, no underscores
+- Between 3 and 63 characters
+- Must be unique globally — if it's taken, add more to it
 
 ## 🚀 Setup
 
@@ -115,9 +145,9 @@ cd voice-translator
 
 **2. Set up environment variables**
 ```bash
-cp .env.example .env
-# Open .env and fill in your API Gateway URL
-```
+cp frontend/.env.example frontend/.env
+# Open .env and fill in your API Gateway URL. .env file is not committed to your github repo because it is ignored by .gitignore. Github deployment will pick up API URL throgh Github Secrets. .env is refered on only on your local. 
+```s
 
 **3. Deploy the backend**
 ```bash

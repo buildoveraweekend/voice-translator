@@ -9,6 +9,7 @@
         "s3:GetObject",
         "s3:DeleteObject"
       ],
+      "_comment": "CHANGE THIS — replace with your actual bucket name",
       "Resource": "arn:aws:s3:::voice-translator-YOUR-NAME-2026/*"
     },
     {
