@@ -9,7 +9,7 @@
     <strong>Speak in any language. Hear the translation instantly.</strong><br/>
     A real-time voice translator built with AWS AI services and React.<br/>
     Built in a single weekend as part of the
-    <a href="https://youtube.com/@BuildOverAWeekend">Build Over A Weekend</a>
+    <a href="https://youtu.be/s2cbHwGTIbA">Build Over A Weekend</a>
     YouTube series.
   </p>
 
@@ -20,7 +20,7 @@
   ![License](https://img.shields.io/badge/License-MIT-green)
   ![Cost](https://img.shields.io/badge/Cost-£0.00-brightgreen)
 
-  [**▶ Watch the Tutorial**](https://youtube.com/@BuildOverAWeekend) ·
+  [**▶ Watch the Tutorial**](https://youtu.be/s2cbHwGTIbA) ·
   [**🚀 Live Demo**](https://buildoveraweekend.github.io/voice-translator) ·
   [**📖 Setup Guide**](#-setup)
 
@@ -28,14 +28,9 @@
 
 ---
 
-## 🎬 Tutorial Series
+## 🎬 Tutorial 
 
-| Part | Title | Watch |
-|------|-------|-------|
-| Part 1 | The Architecture — Planning a Cloud App | [▶ Watch](https://youtu.be/PART1-LINK) |
-| Part 2 | Building the Backend — Lambda, S3, API Gateway | [▶ Watch](https://youtu.be/PART2-LINK) |
-| Part 3 | Building the Frontend — React & GitHub Pages | [▶ Watch](https://youtu.be/PART3-LINK) |
-
+https://youtu.be/s2cbHwGTIbA
 ---
 
 ## 🗓 Weekend Timeline
@@ -85,10 +80,6 @@ Before you start, make sure you have:
 - [ ] [Git](https://git-scm.com/) installed
 - [ ] An [AWS account](https://aws.amazon.com/free/) (free)
 - [ ] A [GitHub account](https://github.com/) (free)
-
-> 💡 **Never used AWS before?**
-> Watch [Part 1 of the tutorial](https://youtu.be/PART1-LINK) — we
-> walk through account setup from scratch.
 
 ---
 ## 🌿 Branches
