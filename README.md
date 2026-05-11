@@ -30,7 +30,8 @@
 
 ## 🎬 Tutorial 
 
-https://youtu.be/s2cbHwGTIbA
+[▶ Watch](https://youtu.be/s2cbHwGTIbA) 
+
 ---
 
 ## 🗓 Weekend Timeline
